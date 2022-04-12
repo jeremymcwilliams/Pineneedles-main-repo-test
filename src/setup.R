@@ -32,6 +32,8 @@ library("sf")
 library("tidyverse")
 library("maps")
 
+source(file = "src/sdm-functions.R")
+
 # Make sure packages all installed
   #successful <- required %in% rownames(installed.packages())
   #unsuccessful <- required[!successful]
@@ -40,39 +42,27 @@ library("maps")
   # unsuccessful.string <- paste0(unsuccessful, collapse = ", ")
   #  stop(paste0("One or more required packages could not be installed: ", 
   #             unsuccessful.string))
-}
+#}
 
 # load current climate data
-if(file.exists("data")){
-  dir.create("data/wc2-5")
-}else{
-  dir.create("data")
-  dir.create("data/wc2-5")
-}
+#if(file.exists("data")){
+#  dir.create("data/wc2-5")
+#}else{
+#  dir.create("data")
+#  dir.create("data/wc2-5")
+#}
 
-url<-"https://climatedata.watzekdi.net/bio_2-5m_bil.zip"
-destfile<-"data/wc2-5/bio_2-5m_bil.zip"
+#url<-"https://climatedata.watzekdi.net/bio_2-5m_bil.zip"
+#destfile<-"data/wc2-5/bio_2-5m_bil.zip"
 
-message("Downloading climate data from WorldClim")
-download.file(url, destfile)
-message("Extracting current climate data (this may take a moment)")
-unzip(zipfile = "data/wc2-5/bio_2-5m_bil.zip", exdir="data/wc2-5/")
-file.remove("data/wc2-5/bio_2-5m_bil.zip")
+#message("Downloading climate data from WorldClim")
+#download.file(url, destfile)
+#message("Extracting current climate data (this may take a moment)")
+#unzip(zipfile = "data/wc2-5/bio_2-5m_bil.zip", exdir="data/wc2-5/")
+#file.remove("data/wc2-5/bio_2-5m_bil.zip")
 
 
-# load future climate data
 
-future<-c("forecast1.zip","forecast2.zip","forecast3.zip","forecast4.zip")
-
-#loops through the future vector, downloads and unzips each file
-for (file in future){
-  urlFuture<-paste("https://climatedata.watzekdi.net/",file, sep = "")
-  destfileFuture<-file
-  download.file(urlFuture, destfileFuture)
-  message("Extracting future climate data (this may take a moment)")
-  unzip(zipfile = file, exdir=".")
-  file.remove(file)
-}
 
 
 

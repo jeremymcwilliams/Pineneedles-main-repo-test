@@ -283,3 +283,21 @@ SDMBioclim <- function(data, padding = 0.1) {
   
   return(list(sdm = sdm.model, sdm.threshold = sdm.model.threshold))
 }
+
+loadClimateData<-function(){
+  # load future climate data
+  
+  future<-c("forecast1.zip","forecast2.zip","forecast3.zip","forecast4.zip")
+  
+  #loops through the future vector, downloads and unzips each file
+  for (file in future){
+    urlFuture<-paste("https://climatedata.watzekdi.net/",file, sep = "")
+    destfileFuture<-file
+    download.file(urlFuture, destfileFuture)
+    message("Extracting future climate data (this may take a moment)")
+    unzip(zipfile = file, exdir=".")
+    file.remove(file)
+  }
+  
+}
+

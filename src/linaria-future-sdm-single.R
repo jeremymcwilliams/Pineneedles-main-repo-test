@@ -53,7 +53,9 @@ if (length(missing.packages) > 0) {
 }
 
 
-source(file = "src/sdm-functions.R")
+#source(file = "src/sdm-functions.R")
+
+loadClimateData()
 
 ################################################################################
 # ANALYSES
