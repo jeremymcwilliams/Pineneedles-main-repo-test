@@ -11,15 +11,15 @@
 ################################################################################
 
 # install packages:
-install.packages("raster")
-install.packages("sp")
-install.packages("dismo")
-install.packages("maptools")
-install.packages("spocc")
-install.packages("rgdal")
-install.packages("sf")
-install.packages("tidyverse")
-install.packages("maps")
+require("raster")
+require("sp")
+require("dismo")
+require("maptools")
+require("spocc")
+require("rgdal")
+require("sf")
+require("tidyverse")
+require("maps")
 
 # load packages:
 library("raster")
